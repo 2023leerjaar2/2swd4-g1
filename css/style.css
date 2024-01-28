@@ -1,34 +1,88 @@
-header {
-  display: grid;
-  grid-template-columns: [row1-start] 5% [row1-end] 30% [third-line] auto;
-  padding: 1vh;
-  border: 2px solid black;
-  background-color: #5e260f;
+/* header styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
 }
-header section {
-  display: grid;
+
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
-header section:nth-child(1) > a > img {
-  border: 2px solid black;
-  padding: 1px;
-  background-color: white;
+
+.logo img,
+.login img {
+  height: 50px; 
 }
-header section:nth-child(2) {
-  justify-content: center;
-  grid-template-columns: [row1-start] 60% [row1-end] auto;
-  gap: 10%;
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
-header section:nth-child(2) > a {
-  font-size: 3vh;
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li a {
   text-decoration: none;
-  color: #e4b404;
+  color: #555;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s ease; 
+}
+
+nav ul li a:hover {
+  color: #000;
+}
+
+
+section {
   display: flex;
-  justify-self: center;
+  justify-content: space-between;
+  align-items: center;
 }
-header section:nth-child(2) > a:hover {
-  color: purple;
+
+section a {
+  text-decoration: none;
+  color: #555;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  border: 2px solid #555;
 }
-header section:nth-child(3) {
-  justify-content: end;
-}/*# sourceMappingURL=style.css.map */
+
+section a:hover {
+  background-color: #555;
+  color: #fff;
+  transform: translateY(-2px); 
+}
+
+section a:first-child {
+  margin-right: 10px; 
+}
+
+/* header styling */
+
+
+
