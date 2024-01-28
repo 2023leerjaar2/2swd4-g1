@@ -4,48 +4,87 @@ $tertiaryColor: #7e0800;
 $quaternaryColor: #5e260f;
 $quinaryColor: #e1684a;
 
+/*header */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+    color: #333;
+}
 
 header {
-    display: grid;
-    grid-template-columns: [row1-start] 5% [row1-end] 30% [third-line] auto;
-    padding: 1vh;
-    border: 2px solid black;
-    background-color: $quaternaryColor;
-
-    section{
-        display: grid;
-        align-items: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    .logo img,
+    .login img {
+        height: 50px;
     }
+}
 
-    section:nth-child(1) {
-        & > a > img {
-            border: 2px solid black;
-            padding: 1px;
-            background-color: white;
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+        display: inline;
+        margin-right: 20px;
+        
+        &:last-child {
+            margin-right: 0;
         }
-    }
-
-    section:nth-child(2) {
         
-        justify-content: center;
-        grid-template-columns: [row1-start] 60% [row1-end] auto;
-        gap: 10%;
-        
-        & > a {
-            font-size: 3vh;
+        a {
             text-decoration: none;
-            color: $primaryColor;
-            display: flex;
-            justify-self: center;
-
+            color: #555;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            
             &:hover {
-                color: purple;
+                color: #000;
             }
         }
     }
+}
 
-    section:nth-child(3) {
+section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    a {
+        text-decoration: none;
+        color: #555;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 12px 24px;
+        border-radius: 6px;
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        border: 2px solid #555;
         
-        justify-content: end;
+        &:hover {
+            background-color: #555;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        
+        &:first-child {
+            margin-right: 10px;
+        }
     }
 }
+
+/* next*/
