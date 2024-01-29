@@ -271,4 +271,105 @@ main {
         }
     }
 }
+/*login*/
+/*login*/
+
+$primary-color: #333;
+$button-color: #333;
+$button-hover-color: #555;
+$input-border-color: #ccc;
+$accent-color: #ff6f61;
+
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: $primary-color;
+    color: #fff;
+    padding: 10px 20px;
+    @include flex-center;
+    justify-content: space-between;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+form {
+    background-color: #fff;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: $primary-color;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid $input-border-color;
+    border-radius: 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+    &:focus {
+        outline: none;
+        border-color: darken($input-border-color, 10%);
+    }
+}
+
+input[type="submit"] {
+    background-color: $button-color;
+    color: #fff;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    &:hover {
+        background-color: $button-hover-color;
+    }
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.forgot-password a {
+    color: $accent-color;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 /*next*/
