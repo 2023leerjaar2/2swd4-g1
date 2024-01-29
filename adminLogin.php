@@ -9,7 +9,7 @@
     <?php require "helper.php";
     
     if (isset($_POST["gebruikersnaam"]) && isset($_POST["wachtwoord"])) {
-        // Gebruikersnaam en wachtwoord van het formulier ophalen
+        
         $gebruikersnaam = $_POST["gebruikersnaam"];
         $wachtwoord = $_POST["wachtwoord"];
     
@@ -35,7 +35,7 @@
 
     <?php include "header.php"; ?>
 
-    <form action="login_process.php" method="post">
+    <form action="" method="post">
         <h2>Login</h2>
         <input type="text" name="username" placeholder="Username" required>
         <input type="password" name="password" placeholder="Password" required>
