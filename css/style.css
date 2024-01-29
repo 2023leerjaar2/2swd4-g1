@@ -228,7 +228,6 @@ main .contact-info p:hover, main .contact-info ul li:hover {
 }
 
 /*login*/
-/*login*/
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -356,4 +355,102 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/*recept*/
+:root {
+  --primary-color: #e4b404;
+  --secondary-color: #676408;
+  --tertiary-color: #7e0800;
+  --quaternary-color: #5e260f;
+  --quinary-color: #e1684a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+  color: #333;
+  padding: 20px;
+}
+
+.recipe {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+.box.ingredients {
+  border-bottom: 4px solid #e4b404;
+}
+.box.recipe-desc {
+  border-bottom: 4px solid #676408;
+}
+.box.image {
+  border-bottom: 4px solid #7e0800;
+}
+
+.title {
+  color: #e4b404;
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.ingredients ul,
+.recipe-desc ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+.ingredients ul li,
+.recipe-desc ul li {
+  font-size: 18px;
+  color: #e1684a;
+  margin-bottom: 12px;
+  line-height: 1.6;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.image {
+  position: relative;
+}
+.image img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: block;
+}
+.image img:hover {
+  transform: scale(1.05);
+}
+.image .caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #676408;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }/*# sourceMappingURL=style.css.map */
