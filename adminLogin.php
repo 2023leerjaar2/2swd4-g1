@@ -5,6 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Login</title>
+
+    <?php require "helper.php";
+    
+    if (isset($_POST["gebruikersnaam"]) && isset($_POST["wachtwoord"])) {
+        // Gebruikersnaam en wachtwoord van het formulier ophalen
+        $gebruikersnaam = $_POST["gebruikersnaam"];
+        $wachtwoord = $_POST["wachtwoord"];
+    
+        
+        $user = loginUser($gebruikersnaam, $wachtwoord, $conn);
+    
+        if ($user) {
+            
+            session_start();
+            $_SESSION["gebruikersnaam"] = $gebruikersnaam;
+            echo "Inloggen geslaagd. Welkom, $gebruikersnaam!";
+            header("Location: adminPanel.php");
+            exit();
+        } else {
+            
+            echo "Inloggen mislukt. Controleer je gegevens.";
+        }
+    }
+    ?>
+
 </head>
 <body>
 
