@@ -316,4 +316,44 @@ input[type=submit]:hover {
   text-decoration: underline;
 }
 
-/*next*//*# sourceMappingURL=style.css.map */
+/*admin-panal*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  background-color: #eff5fc;
+  color: #333;
+}
+
+.admin-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+.admin-buttons button {
+  width: 200px;
+  height: 60px;
+  margin: 20px 0;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(to right, #ffc107, #e4b404);
+  color: #695252;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+.admin-buttons button:hover {
+  background-color: #b28c03;
+  border-color: #806502;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}/*# sourceMappingURL=style.css.map */
