@@ -10,9 +10,9 @@
     <?php include "header.php"; ?>
 
     <div class="admin-buttons">
-        <button>New recept</button>
-        <button>Accounts</button>
-        <button>All recepten</button>
+        <button><a href="adminRecept.php">New recept</a></button>
+        <button><a href="#">Accounts</a></button>
+        <button><a href="#">All recepten</a></button>
     </div>
 </body>
 </html>
