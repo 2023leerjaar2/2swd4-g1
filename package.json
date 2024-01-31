@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "ckeditor5-build-classic-extended": "^20.0.1"
+  }
+}

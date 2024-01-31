@@ -1,0 +1,520 @@
+/*
+*  html5resetcss
+*/
+@import url("https://fonts.googleapis.com/css2?&family=Roboto&display=swap");
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+@font-face {
+  font-family: Roadstore;
+  src: url(./../fonts/Roadstore.otf);
+}
+body {
+  background-color: #0C0910;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  height: 15vh;
+  flex-direction: row;
+  background-color: #0C0910;
+}
+header img {
+  height: 80%;
+  margin-left: 5vw;
+}
+header nav {
+  display: flex;
+  -moz-column-gap: 3vw;
+       column-gap: 3vw;
+}
+header nav a {
+  font-size: 1.5rem;
+  color: #9d9d06;
+  font-family: roadstore;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+}
+header nav a:hover {
+  text-decoration: underline;
+}
+header #navigation {
+  justify-content: center;
+  justify-self: center;
+}
+header #adminnav {
+  margin-right: 5vw;
+}
+
+#post-table {
+  width: 75vw;
+  border-collapse: collapse;
+  border: 2px solid red;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}
+#post-table thead {
+  row-gap: 2vh;
+}
+#post-table th {
+  color: #cece08;
+  font-family: roboto;
+  font-size: 1.5rem;
+  text-align: left;
+}
+#post-table td {
+  font-family: roboto;
+  font-size: 1.25rem;
+  color: #9d9d06;
+}
+#post-table td img {
+  width: 3vw;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1vh;
+}
+
+.darktable {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.button-edit {
+  background-color: #29299f;
+  padding: 15px 25px;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  align-self: center;
+  color: white;
+  font-size: 1rem;
+  font-family: roboto;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  text-decoration: none;
+}
+
+.button-delete {
+  background-color: #882323;
+  padding: 15px 25px;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  align-self: center;
+  color: white;
+  font-size: 1rem;
+  font-family: roboto;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  text-decoration: none;
+}
+
+.post-title {
+  font-size: 1.5rem;
+  font-family: Roboto;
+  color: #cece08;
+}
+
+.post-text {
+  font-size: 1.25rem;
+  font-family: Roboto;
+  color: #9d9d06;
+}
+
+.post-title-text {
+  width: 20vw;
+}
+
+.post-img {
+  width: 3vw;
+}
+
+table.darkTable {
+  font-family: roboto;
+  background-color: #312541;
+  width: 100%;
+  text-align: left;
+}
+table.darkTable td {
+  padding: 15px 15px;
+}
+table.darkTable th {
+  padding: 15px 15px;
+}
+table.darkTable tbody td {
+  font-size: 1.25rem;
+  color: #9D9D06;
+}
+table.darkTable tr:nth-child(even) {
+  background: #241B31;
+}
+table.darkTable thead {
+  background: #181220;
+}
+table.darkTable thead th {
+  font-size: 1.5rem;
+  color: #CECE08;
+  text-align: left;
+}
+
+#button-cell {
+  display: flex;
+  -moz-column-gap: 2vw;
+       column-gap: 2vw;
+}
+#button-cell button {
+  padding: 15px 25px;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  align-self: center;
+  color: white;
+  font-size: 1rem;
+  font-family: roboto;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+#table-container {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  row-gap: 1vh;
+}
+#table-container #new-recipe-button {
+  padding: 15px 25px;
+  font-family: roboto;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: #cece08;
+  align-self: end;
+  margin-bottom: 1vh;
+  background: #312541;
+  margin-left: 0;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+form {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+}
+form #register-border {
+  padding: 20px;
+  border: 2px #3d2e51 solid;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1vh;
+}
+form #register-border fieldset {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+form #register-border input {
+  background-color: #3d2e51;
+  border: none;
+  color: white;
+  font-family: roboto;
+  font-size: 1.25rem;
+  width: 50%;
+  padding: 5px 5px;
+  margin-left: auto;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+form #register-border #content {
+  width: 100%;
+  background-color: #3d2e51;
+  border: none;
+  color: white;
+  font-family: roboto;
+  font-size: 1.25rem;
+  padding: 5px 5px;
+  height: 25vh;
+  justify-items: unset;
+  align-items: start;
+  align-self: unset;
+  margin-left: 0;
+  text-align: start;
+  vertical-align: top;
+}
+form #register-border #content-container {
+  height: 30vh;
+  margin-top: 2vh;
+  row-gap: 1vh;
+  flex-direction: column;
+  align-items: start;
+}
+form #register-border legend {
+  margin-left: 5px;
+  padding: 0px 5px;
+  color: #cece08;
+  font-family: roboto;
+  font-size: 1.5rem;
+}
+form #register-border label {
+  color: #cece08;
+  font-family: roboto;
+  font-size: 1.25rem;
+}
+form #register-border input {
+  border: none;
+  align-self: center;
+}
+form #register-border #new-recipe-button {
+  padding: 15px 25px;
+  font-family: roboto;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: #cece08;
+  align-self: center;
+  background: #312541;
+  margin-left: 0;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.recipe-card {
+  width: 33vw;
+  height: 35vh;
+  background-color: #181220;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3vh;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease-in-out;
+}
+.recipe-card:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 4px 4px rgba(44, 44, 44, 0.3);
+}
+.recipe-card .title-container {
+  max-height: 20%;
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 1vw;
+       column-gap: 1vw;
+}
+.recipe-card .title-container .recipe-card-title {
+  font-family: roadstore;
+  font-size: 1.5rem;
+  color: #cece08;
+}
+.recipe-card .title-container .vegan-icon {
+  height: 2rem;
+}
+.recipe-card .recipe-card-description {
+  color: #9d9d06;
+  font-style: italic;
+  margin-top: auto;
+  max-height: 20%;
+}
+.recipe-card .recipe-card-img {
+  max-height: 60%;
+  max-width: 90%;
+  align-self: center;
+}
+
+#homepage-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  -moz-column-gap: 3vw;
+       column-gap: 3vw;
+}
+#homepage-main #newest-recipe {
+  height: 60vh;
+  width: 50vw;
+}
+#homepage-main #newest-recipe #newest-recipe-container {
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  padding: 30px;
+  background-color: #181220;
+}
+#homepage-main #newest-recipe #newest-recipe-container .newest-recipe-description {
+  margin-top: auto;
+  font-size: 1rem;
+  font-family: roadstore;
+  color: #9d9d06;
+  height: 10%;
+  font-style: italic;
+}
+#homepage-main #newest-recipe #newest-recipe-container .newest-recipe-img {
+  align-self: center;
+  width: 30vh;
+  height: 30vh;
+}
+#homepage-main #newest-recipes {
+  height: 85%;
+}
+#homepage-main #newest-recipes #newest-recipes-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3vh;
+}
+#homepage-main #newest-recipes #newest-recipes-container .new-recipe {
+  background-color: #181220;
+  padding: 2.5%;
+  display: flex;
+}
+#homepage-main #newest-recipes #newest-recipes-container .new-recipe .new-recipe-img {
+  height: 10vh;
+  margin-left: auto;
+}
+#homepage-main #newest-recipes #newest-recipes-container .new-recipe .new-recipe-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  row-gap: 3vh;
+}
+
+.homepage-title {
+  font-size: 3rem;
+  font-family: roadstore;
+  color: #cece08;
+  height: 10%;
+}
+
+.newest-recipe-title {
+  font-size: 2.5rem;
+  font-family: roadstore;
+  color: #cece08;
+  height: 10%;
+}
+
+.new-recipe-title {
+  font-size: 1.5rem;
+  font-family: roadstore;
+  color: #cece08;
+  height: 10%;
+}
+
+.new-recipe-description {
+  font-size: 1rem;
+  font-family: roadstore;
+  color: #9d9d06;
+  height: 10%;
+  font-style: italic;
+}/*# sourceMappingURL=style.css.map */
