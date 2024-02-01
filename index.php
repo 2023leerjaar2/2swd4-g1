@@ -23,7 +23,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <h1 class="homepage-title">Nieuwste recept</h1>
 
             <article id="newest-recipe-container">
-                <a class="newest-recipe-title" href='recept.php?id="<?= $post['id']?>'><?php echo $posts[0]['title']?></a>
+                <a class="newest-recipe-title" href="recept.php?id=<?= $posts[0]['id']?>"'><?php echo $posts[0]['title']?></a>
                 <img src="./images/default.png" class="newest-recipe-img">
                 <p class="newest-recipe-description"><?php echo $posts[0]['description']?></p>
             </article>
@@ -33,22 +33,22 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <article id="newest-recipes-container">
                 <article class="new-recipe">
                     <article class=new-recipe-info-container>
-                        <a class="new-recipe-title"  href='recept.php?id="<?= $post['id']?>'><?php echo $posts[1]['title'] ?></a>
+                        <a class="new-recipe-title"  href='recept.php?id=<?= $posts[1]['id']?>'><?php echo $posts[1]['title'] ?></a>
                         <p class="new-recipe-description"><?= $posts[1]['description'] ?></p>
                     </article>
                     <img src="./images/default.png" class="new-recipe-img">
                 </article>
                 <article class="new-recipe">
                 <article class=new-recipe-info-container>
-                        <a class="new-recipe-title"  href='recept.php?id="<?= $post['id']?>'><?php echo $posts[1]['title'] ?></a>
-                        <p class="new-recipe-description"><?= $posts[1]['description'] ?></p>
+                        <a class="new-recipe-title"  href='recept.php?id=<?= $posts[2]['id']?>'><?php echo $posts[2]['title'] ?></a>
+                        <p class="new-recipe-description"><?= $posts[2]['description'] ?></p>
                     </article>
                     <img src="./images/default.png" class="new-recipe-img">
                 </article>
                 <article class="new-recipe">
                 <article class=new-recipe-info-container>
-                        <a class="new-recipe-title"  href='recept.php?id="<?= $post['id']?>'><?php echo $posts[1]['title'] ?></a>
-                        <p class="new-recipe-description"><?= $posts[1]['description'] ?></p>
+                        <a class="new-recipe-title"  href='recept.php?id=<?= $posts[3]['id']?>'><?php echo $posts[3]['title'] ?></a>
+                        <p class="new-recipe-description"><?= $posts[3]['description'] ?></p>
                     </article>
                     <img src="./images/default.png" class="new-recipe-img">
                 </article>

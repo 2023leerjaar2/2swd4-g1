@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require_once('dbconnect.php');
+include 'auth.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['create'])) {
     $newTitle = $_POST['title'];
@@ -21,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['create'])) {
     $stmt = $conn->prepare($sql);
 
     if ($stmt->execute([$newTitle, $newDescription, $newContent, $currentDate, $newDatePublished, $newVegan, $newDifficulty, $newTimeToCook])) {
-
+        header('Location: recepten.php');
     } else {
         echo "Product niet toegevoegd.";
     }
@@ -43,7 +44,7 @@ echo date('d/m/Y/h/i');
     include 'header.php';
     ?>
     <main>
-    <form title="test" method="post" action="" class="registration-form">
+    <form method="post" class="registration-form">
         <fieldset id="register-border">
         <legend>Nieuw Recept</legend>
                 <fieldset>
@@ -56,7 +57,7 @@ echo date('d/m/Y/h/i');
                 </fieldset>
                 <fieldset>
                     <label for="date_published">Datum van publiceren:</label>
-                    <input type="datetime-local" id="date_published" name="date_published">
+                    <input type="datetime-local" id="date_published" name="date_published" required>
                 </fieldset>
                 <fieldset>
                     <label for="vegan">Vegetarisch:</label>
@@ -64,7 +65,7 @@ echo date('d/m/Y/h/i');
                 </fieldset>
                 <fieldset>
                     <label for="difficulty">Moeilijkheidsgraad</label>
-                    <input type="range" id="difficulty" min="0" max="5" name="difficulty" required>
+                    <input class="rangeinput" type="range" min="1" max="5" id="diffuculty" name="difficulty" required>
                 </fieldset>
                 <fieldset>
                     <label for="time_to_cook">Tijd om te koken (minuten):</label>
@@ -78,15 +79,6 @@ echo date('d/m/Y/h/i');
                 <input id="new-recipe-button" type="submit" value="Creëer Post" name="create">
         </fieldset>
             </form>
-            <input id="quillcontent">
     </main>
 </body>
-<script>
-const data = editor.getData();
-document.getElementById("new-recipe-button").addEventListener("click", function() {
-    document.getElementById("quillcontent").innerHTML = data;
-})
-console.log(data);
-
-</script>
 </html>

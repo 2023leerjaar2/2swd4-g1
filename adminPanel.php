@@ -1,12 +1,13 @@
 
 <?php
 session_start();
+include 'auth.php';
 require_once('dbconnect.php');
 
 $sql = "SELECT * FROM users";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
-$posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -21,42 +22,32 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
     <?php
+    include 'dbconnect.php';
+    include 'auth.php';
     include 'header.php';
+
     ?>
     <main>
         <section id="table-container">
-                <a id="new-recipe-button" href="./nieuwRecept.php">Nieuwe gebruiker</a>
+                <a id="new-recipe-button" href="./nieuweGebruiker.php">Nieuwe gebruiker</a>
             <table class="darkTable">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Gebruikersnaam</th>
-                        <th>E-mail</th>
                         <th>Wachtwoord</th>
                         <th>Acties</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    $src;
-                    $active;
-
-                    foreach ($posts as $post):
-                        if ($post['date_published'] < date("Y-m-d-h-i-s")) {
-                            $active = "Ja";
-                        }   else {
-                            $active = "Nee";
-                        }
-                    
-                    ?>
+                    <?php foreach ($users as $user): ?>
                     <tr>
-                        <td><?= $post['id'] ?></td>
-                        <td><?= $post['username'] ?></td>
-                        <td><?= $post['email'] ?></td>
-                        <td><?= $post['password'] ?></td>
-                        <td id="button-cell"><a href="./editRecipe.php?recipe=<?php echo $post['id']?>" class="button-edit">Bewerk</a><a href="./deletePost.php?id=<?php echo $post['id']?>" id="button-delete" class="button-delete">Verwijder</button></td>
+                        <td><?= $user['id'] ?></td>
+                        <td><?= $user['username'] ?></td>
+                        <td>******</td>
+                        <td id="button-cell"><a href="./editUser.php?id=<?php echo $user['id']?>" class="button-edit">Bewerk</a><a href="./deleteUser.php?id=<?php echo $user['id']?>" id="button-delete" class="button-delete">Verwijder</a></td>
                     </tr>
-                    <?php endforeach; ?>
+                    <?php endforeach;?>
                 </tbody>
                 </tr>
             </table>

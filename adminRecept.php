@@ -1,6 +1,7 @@
 
 <?php
 session_start();
+include 'auth.php';
 require_once('dbconnect.php');
 
 $sql = "SELECT * FROM posts";
@@ -32,7 +33,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <th>ID</th>
                         <th>Titel</th>
                         <th>Creatie datum</th>
-                        <th>Actief</th>
+                        <th>Gepubliceerd</th>
                         <th>Acties</th>
                     </tr>
                 </thead>
@@ -42,10 +43,24 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     $active;
 
                     foreach ($posts as $post):
-                        if ($post['date_published'] < date("Y-m-d-h-i-s")) {
+                        if ($post['date_published'] < date("Y-m-d-h-i-s") == 1) {
+                            $published = 1;
+                        } else {
+                            $published = 0;
+                        }
+
+                        if ($published == 1 && $post['deleted'] == 0) {
                             $active = "Ja";
-                        }   else {
+                            $html = 'button-delete">Deactiveer';
+                        }   else if ($published == 0 && $post['deleted'] == 1) {
                             $active = "Nee";
+                            $html = 'button-activate">Activeer';
+                        } else if ($published == 1 && $post['deleted'] == 1) {
+                            $active = "Nee";
+                            $html = 'button-activate">Activeer';
+                        } else if ($published == 0 && $post['deleted'] == 0) {
+                            $active = "Nee";
+                            $html = 'button-delete">Deactiveer';
                         }
                     
                     ?>
@@ -54,7 +69,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= $post['title'] ?></td>
                         <td><?= $post['date_created'] ?></td>
                         <td><?= $active ?></td>
-                        <td id="button-cell"><a href="./editRecipe.php?recipe=<?php echo $post['id']?>" class="button-edit">Bewerk</a><a href="./deletePost.php?id=<?php echo $post['id']?>" id="button-delete" class="button-delete">Verwijder</button></td>
+                        <td id="button-cell"><a href="./editRecipe.php?recipe=<?php echo $post['id']?>" class="button-edit">Bewerk</a><a href="./toggleRecipe.php?id=<?php echo $post['id']?>" id="button-delete" class="<?php echo $html; ?></button></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -63,16 +78,4 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </section>
     </main>
 </body>
-<input type="hidden" id="hiddencontent"></input>
-<script>
-    function remove(element) {
-        document.getElementById("hiddencontent").innerHTML = (element.value);
-    }
-</script>
-<?php
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['button-delete'])) {
-    echo $_POST['hiddencontent'];
-}
-?> 
 </html>

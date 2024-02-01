@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require_once('dbconnect.php');
+include 'auth.php';
 
 $sql = 'SELECT * FROM posts WHERE id = '.$_GET['recipe'].'';
 $stmt = $conn->prepare($sql);
@@ -22,11 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['edit'])) {
         $newVegan = 0;
     }
 
-    $sql = "UPDATE posts SET title = $newTitle, description = $newDescription, content = $newContent, date_updated = $currentDate, date_published = $newDatePublished, difficulty = $newDifficulty, time_to_cook = $newTimeToCook WHERE id = ".$_GET['recipe']."";
-    
+    $sql = "UPDATE posts SET title = ?, description = ?, content = ?, date_updated = ?, date_published = ?, vegan = ?, difficulty = ?, time_to_cook = ? WHERE id = ".$_GET['recipe'];
     $stmt = $conn->prepare($sql);
-
-    $stmt->execute();
+    $stmt->execute([$newTitle, $newDescription, $newContent, $currentDate, $newDatePublished, $newVegan, $newDifficulty, $newTimeToCook]);
+    header('Location: adminRecept.php');
 }
 echo date('d/m/Y/h/i');
 ?>
@@ -46,7 +46,7 @@ echo date('d/m/Y/h/i');
     include 'header.php';
     ?>
     <main>
-    <form title="test" method="post" action="" class="registration-form">
+    <form method="post" action="" class="registration-form">
         <fieldset id="register-border">
         <legend>Nieuw Recept</legend>
                 <fieldset>
@@ -71,7 +71,7 @@ echo date('d/m/Y/h/i');
                 </fieldset>
                 <fieldset>
                     <label for="difficulty">Moeilijkheidsgraad</label>
-                    <input type="range" id="difficulty" min="0" max="5" name="difficulty" value="<?= $posts['difficulty'] ?>" required>
+                    <input class="rangeinput" type="range" min="1" max="5" id="diffuculty" name="difficulty">
                 </fieldset>
                 <fieldset>
                     <label for="time_to_cook">Tijd om te koken:</label>
@@ -84,15 +84,6 @@ echo date('d/m/Y/h/i');
                 <input id="new-recipe-button" type="submit" value="Bewerk Post" name="edit">
         </fieldset>
             </form>
-            <input id="quillcontent">
     </main>
 </body>
-<script>
-const data = editor.getData();
-document.getElementById("new-recipe-button").addEventListener("click", function() {
-    document.getElementById("quillcontent").innerHTML = data;
-})
-console.log(data);
-
-</script>
 </html>

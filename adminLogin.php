@@ -13,7 +13,9 @@
     include 'header.php';
     ?>
     <main>
-        <form id="login-section" method="post" action="index.php">
+        <form id="login-section" method="post">
+            <fieldset id="register-border">
+            <legend>Login</legend>
             <fieldset>
                 <label for="username">Gebruikersnaam:</label>
                 <input type="text" id="username" name="username">
@@ -28,30 +30,34 @@
 </body>
 
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+include 'dbconnect.php';
+if (isset($_POST['login']) && $_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $getUserInfoSql = "SELECT Gebruikersnaam, Salt, Hashed_Wachtwoord FROM Gebruikers WHERE Gebruikersnaam = ?";
-    $stmt = $conn->prepare($getUserInfoSql);
+    $sql = "SELECT username, Salt, Hashed_Password FROM users WHERE username = ?";
+    $stmt = $conn->prepare($sql);
     $stmt->execute([$username]);
-    $row = $stmt->fetch();
+    $user = $stmt->fetch();
 
-    if ($row) {
-        $hashedPassword = $row['Hashed_Wachtwoord'];
-        $salt = $row['Salt'];
+    if ($user) {
+        $hashedPassword = $user['Hashed_Password'];
+        $salt = $user['Salt'];
 
         $saltedPassword = $salt . $password;
+        echo 'salted password= '.$saltedPassword.'<br>';
+        echo password_hash($saltedPassword, PASSWORD_BCRYPT).'<br>'; 
+        echo $hashedPassword.'<br';
 
         if (password_verify($saltedPassword, $hashedPassword)) {
-            $_SESSION['username'] = $row['Gebruikersnaam'];
-            $sql = "UPDATE Gebruikers SET Laatste_Login = NOW() WHERE Gebruikersnaam = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->execute([$username]);
-            header("Location: uitleningen.php");
+            session_start();
+            $_SESSION['username'] = $user['username'];
+            header("Location: adminRecept.php");
             exit();
         } else {
             echo "Incorrect password.";
         }
+    }
+}
 ?>
 </html>
